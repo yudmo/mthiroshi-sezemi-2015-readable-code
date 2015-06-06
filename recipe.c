@@ -45,9 +45,9 @@ int main(int argc, char* argv[]){
   printf("Please type the ID to show the recipe\n");
   scanf("%d", &recipe_id);
 
+  /*該当するIDがあれば表示*/
   if(file_lines >= recipe_id){
-    printf("%d:%s",recipe_id, data_list[recipe_id -1]);/* 読み込んだデータを表示 */
-  }else{
+    printf("%d:%s",recipe_id, data_list[recipe_id -1]);
     printf("THIS ID DOES NOT EXISTS.\n");
     exit(EXIT_FAILURE);
   }
