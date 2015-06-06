@@ -1,7 +1,7 @@
 マクロは読みやすい名前をつけた
 
     #define SIZEREAD 256 /* 1度に読み込むサイズ */
-    
+
     #define SIZELIEN 100 /* 読み込む行数のサイズ */
 
 ##午後
@@ -15,6 +15,7 @@ char **data_list; /* 読み込んだデータを格納する配列 */
 ほとんどすべてに処理がわかるようにコメントがされていた．
 
 実際のコード
+
 if ((fp = fopen(argv[1], "r")) == NULL) { /* ファイルオープンのエラーチェック*/
   printf("FILE OPEN ERROR\n");
   exit(EXIT_FAILURE);
