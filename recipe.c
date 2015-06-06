@@ -9,6 +9,8 @@ int main(int argc, char* argv[]){
   FILE *fp;
   char read_data[SIZEREAD] = {'\0'}; /* 読み込んだデータを格納用 */
   int i,j;/*ループ変数*/
+  int recipe_id; /*ユーザが入力するレシピID*/
+  int file_lines;/*ファイル内の登録されている数をチェック*/
 
   char data_list[256][256]; /* 読み込んだデータを格納する配列 */
   for(i=0 ; i < 256 ; i++){/*初期化*/
@@ -34,10 +36,21 @@ int main(int argc, char* argv[]){
       data_list[i][j] = read_data[j];
     }
 
-    printf("%d:%s",i+1, data_list[i]);/* 読み込んだデータを表示 */
+    /*登録数をチェック*/
+    file_lines = i + 1;
   }
 
   fclose(fp); /* ファイルのクローズ */
+
+  printf("Please type the ID to show the recipe\n");
+  scanf("%d", &recipe_id);
+
+  if(file_lines >= recipe_id){
+    printf("%d:%s",recipe_id, data_list[recipe_id -1]);/* 読み込んだデータを表示 */
+  }else{
+    printf("THIS ID DOES NOT EXISTS.\n");
+    exit(EXIT_FAILURE);
+  }
 
   return EXIT_SUCCESS;
 }
